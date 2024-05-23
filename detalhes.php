@@ -1,7 +1,8 @@
 <?php
-    require_once 'Contato.php';
+    require_once 'ContatoDAO.php';
 
-    $contato = true;
+    $contatoDAO = new ContatoDAO();
+    $contato = $contatoDAO->getAll();
 ?>
 
 <!DOCTYPE html>
