@@ -1,3 +1,9 @@
+<?php
+    require_once 'Contato.php';
+
+    $contato = true;
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,7 +35,7 @@
                     <?php if ($contato) : ?>
                         <button type="submit" name="delete" class="btn btn-danger">Excluir</button>
                     <?php endif; ?>
-                    <a href="index.html" class="btn btn-secondary">Voltar</a>
+                    <a href="index.php" class="btn btn-secondary">Voltar</a>
                 </div>
             </div>
         </form>
