@@ -34,6 +34,25 @@
         return $this->email;
     }
 
+    // SETERS
+
+    public function setNome($nome) 
+    {
+        return $nome > 3 ? $this->nome = $nome : false;
+    }
+
+    public function setTelefone($telefone) 
+    {
+        // Verificar se numero de telefone existe e é vaalido
+        $this->telefone =  $telefone;
+    }
+
+    public function setEmail($email) 
+    {
+        // verificar se o email e válido
+        $this->email = $email;
+    }
+
 
     }
 
