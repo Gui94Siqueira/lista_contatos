@@ -49,7 +49,8 @@
                 $stmt->bindParam(':email', $email);
 
                 $stmt->execute();
-                 return true;
+                
+                return true;
 
             } catch (PDOException $e)
             {
