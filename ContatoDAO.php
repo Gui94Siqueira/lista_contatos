@@ -11,6 +11,24 @@
             $this->db = Database::getInstance()->getConnection();
         }
 
+        public function getById($id) {
+            try
+            {
+                $sql = "SELECT * FROM contatos_info WHERE id = :id";
+
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+
+                $contato = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $contato ? new Contato($contato['id'], $contato['nome'], $contato['telefone'], $contato['email']) : null;
+
+            } catch (PDOException $e)
+            {
+                return null;
+            }
+        }
+
         // Criar um getAll
         public function getAll() 
         {
@@ -74,12 +92,12 @@
                 $stmt->bindParam(':telefone', $telefone);
                 $stmt->bindParam(':email', $email);
 
-                $stmt->exeecute();
+                $stmt->execute();
 
                 return true;
             } catch (PDOException $e)
             {
-                return false
+                return false;
             }
         }
     }
