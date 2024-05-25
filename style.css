@@ -1,0 +1,19 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(59, 59, 59);
+}
+
+h1 {
+    color: aliceblue;
+}
+
+.card {
+    background-color: #e3f5a8;
+    border-radius: 0;
+    border: none;
+    min-height: 250px;
+}
+
+.row {
+    row-gap: 20px;
+}

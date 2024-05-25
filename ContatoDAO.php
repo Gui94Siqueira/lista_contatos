@@ -11,7 +11,8 @@
             $this->db = Database::getInstance()->getConnection();
         }
 
-        public function getById($id) {
+        public function getById($id) 
+        {
             try
             {
                 $sql = "SELECT * FROM contatos_info WHERE id = :id";
@@ -52,7 +53,8 @@
             }
         }
 
-        public function create($contato) {
+        public function create($contato) 
+        {
             try
             {
                 $sql = "INSERT INTO contatos_info (nome, telefone, email) VALUES (:nome, :telefone, :email)";
@@ -76,7 +78,8 @@
             }
         }
 
-        public function update($contato) {
+        public function update($contato) 
+        {
             try
             {
                 $sql = "UPDATE contatos_info SET nome = :nome, telefone = :telefone, email = :email WHERE id = :id";
@@ -100,5 +103,22 @@
                 return false;
             }
         }
+
+        public function delete($id) 
+        {
+            try
+            {
+                $sql = "DELETE FROM contatos_info WHERE id = :id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+
+                return true;
+            } catch (PDOException $e)
+            {
+                return false;
+            }
+        }
     }
+    
 ?>
