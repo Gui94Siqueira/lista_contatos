@@ -100,5 +100,20 @@
                 return false;
             }
         }
+
+        public function delete($id) {
+            try
+            {
+                $sql = "DELETE FROM contatos_info WHERE id = :id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+
+                return true;
+            } catch (PDOException $e)
+            {
+                return false;
+            }
+        }
     }
 ?>

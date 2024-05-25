@@ -23,6 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $novoContato = new Contato(null, $_POST['nome'], $_POST['telefone'], $_POST['email']);
             $contatoDAO->create($novoContato);
         }
+    } elseif(isset($_POST['delete'])) {
+            $contato = $contatoDAO->getById($_POST['id']);
+            $contato ? $contatoDAO->delete($_POST['id']) : null;
     }
 
     header('Location: index.php');
