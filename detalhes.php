@@ -23,9 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $novoContato = new Contato(null, $_POST['nome'], $_POST['telefone'], $_POST['email']);
             $contatoDAO->create($novoContato);
         }
-    } elseif(isset($_POST['delete'])) {
-            $contato = $contatoDAO->getById($_POST['id']);
-            $contato ? $contatoDAO->delete($_POST['id']) : null;
+    } elseif (isset($_POST['delete']) && isset($_POST['id'])) {
+        $contatoDAO->delete($_POST['id']);
     }
 
     header('Location: index.php');
@@ -41,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Contato</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="container">
         <h1 class="my-4">Detalhes do Contato</h1>
