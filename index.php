@@ -1,13 +1,11 @@
 <?php
-// require_once 'Database.php';
-// require_once 'Contato.php';
+require_once 'Database.php';
+require_once 'Contato.php';
 require_once 'ContatoDAO.php';
 
 $contatoDAO = new ContatoDAO();
 $contatos = $contatoDAO->getAll();
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,21 +17,26 @@ $contatos = $contatoDAO->getAll();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<style>
+    .card {
+        background-color: white;
+    }
+</style>
     <div class="container">
         <h1 class="my-4">Lista de Contatos</h1>
         <a href="detalhes.php" class="btn btn-primary mb-4">Adicionar Contato</a>
-        <div class="row row-cols-1 row-cols-md-3 g-4">            
-            <?php foreach($contatos as $contato) : ?>    
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <?php foreach($contatos as $contato) : ?>
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $contato->getNome() ?></h5>
-                            <p class="card-text"><?php echo $contato->getTelefone() ?></p>
-                            <p class="card-text"><?php echo $contato->getEmail() ?></p>
-                            <a href="detalhes.php?id=<?php echo $contato->getId() ?>" class="btn btn-primary">Detalhes</a>
+                            <h5 class="card-title"><?php echo $contato->getNome(); ?></h5>
+                            <p class="card-text"><?php echo $contato->getTelefone(); ?></p>
+                            <p class="card-text"><?php echo $contato->getEmail(); ?></p>
+                            <a href="detalhes.php?id=<?php echo $contato->getId(); ?>" class="btn btn-primary">Detalhes</a>
                         </div>
                     </div>
-                </div>
+                </div>  
             <?php endforeach; ?>
         </div>
     </div>
