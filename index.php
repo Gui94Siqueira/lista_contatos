@@ -14,8 +14,14 @@ $contatos = $contatoDAO->getAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Contatos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<style>
+    .card {
+        background-color: white;
+    }
+</style>
     <div class="container">
         <h1 class="my-4">Lista de Contatos</h1>
         <a href="detalhes.php" class="btn btn-primary mb-4">Adicionar Contato</a>
