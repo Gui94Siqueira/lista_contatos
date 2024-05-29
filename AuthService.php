@@ -39,4 +39,19 @@ if ($type === "register") {
         echo "Dados de input inválidos!";
     }
 } elseif ($type === "login") {
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $password = filter_input(INPUT_POST, "password");
+
+    $usuarioDAO = new UsuarioDAO();
+    $usuario = $usuarioDAO->getByEmail($email);
+
+    if($usuario && password_verify($password, $usuario->getSenha())) {
+        $token = bin2hex(random_bytes(25));
+        $usuarioDAO->updateToken($usuario->getId(), $token);
+        $_SESSION['token'] = $token;
+        header('Location: index.php');
+        exit();
+    } else {
+        echo "Email ou senha inválidos";
+    }
 }
