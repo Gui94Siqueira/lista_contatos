@@ -1,4 +1,12 @@
 <?php
+
+session_start(); // Inicia uma sessão na página
+
+if(!isset($_SESSION['token'])) {
+    header('Location: auth.php');
+    exit();
+}
+
 require_once 'Contato.php';
 require_once 'ContatoDAO.php';
 
@@ -48,7 +56,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <style>
     .card {
-        background-color: white;
+        background-color: rgba(250, 235, 215, 0);
+        color: white;
     }
 </style>
 
@@ -60,21 +69,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="card">
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="nome">Nome</label>
+                        <label for="nome">Nome:</label>
                         <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $contato ? $contato->getNome() : ''  ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="telefone">Telefone</label>
+                        <label for="telefone">Telefone:</label>
                         <input type="text" class="form-control" id="telefone" name="telefone" value="<?php echo $contato ? $contato->getTelefone() : ''  ?>">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">Email:</label>
                         <input type="email" class="form-control" id="email" name="email" value="<?php echo $contato ? $contato->getEmail() : ''  ?>" required>
                     </div>
                     <button type="submit" name="save" class="btn btn-success">Salvar</button>
-
-                    <button type="submit" name="delete" class="btn btn-danger">Excluir</button>
-
+                    <?php if($contato) : ?>
+                        <button type="submit" name="delete" class="btn btn-danger">Excluir</button>
+                    <?php endif ?>    
                     <a href="index.php" class="btn btn-secondary">Voltar</a>
                 </div>
             </div>
