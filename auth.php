@@ -6,24 +6,15 @@
     <title>Autenticação</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            justify-content: center;
-            align-items: center;
-        }
-        h2 {
-            color: aliceblue;
-        }
-
-        form {
             color: aliceblue;
         }
     </style>
+</head>
+<body>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">

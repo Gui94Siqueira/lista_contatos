@@ -7,8 +7,16 @@ h1 {
     color: aliceblue;
 }
 
+nav {
+    color: aliceblue;
+}
+
+.navbar button {
+    color: white;
+}
+
 .card {
-    background-color: rgba(250, 235, 215, 0);
+    background-color: white;
     border-radius: 0;
     border: none;
     min-height: 250px;
